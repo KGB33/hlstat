@@ -34,6 +34,9 @@ func CLI(args []string) int {
 }
 
 func (a *appEnv) run() int {
+	if a.routerPing {
+		fmt.Println(pingRouter())
+	}
 	fmt.Printf("%v", a)
 	return 0
 }
