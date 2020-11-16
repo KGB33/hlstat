@@ -57,6 +57,10 @@ func (a *appEnv) fromArgs(args []string) error {
 
 	a.services = map[string]bool {
 		"router": false,
+		"gateway": false,
+		"rpi": false,
+		"dns": false,
+		"d-bot": false,
 	}
 
 	for _, arg := range fl.Args() {
