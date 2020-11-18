@@ -31,9 +31,7 @@ func CLI(args []string) int {
 }
 
 func (a *appEnv) run() int {
-	if a.services["router"] {
-		fmt.Println(pingRouter())
-	}
+	defaultFormat(workerDispacher(a.services))
 	fmt.Printf("%v\n", a)
 	return 0
 }
