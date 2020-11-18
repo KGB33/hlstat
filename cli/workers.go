@@ -58,8 +58,6 @@ func pingRouter() StatusResponse {
 	}
 	return StatusResponse{status: "WARN", message: fmt.Sprintf("Router Cannot Connect to Internet")}
 
-
-
 }
 
 func pingGateway() StatusResponse {
@@ -77,4 +75,3 @@ func pingDiscordBot() string {
 func pingRaspberryPi() string {
 	return "pingRaspberryPi is WIP"
 }
-

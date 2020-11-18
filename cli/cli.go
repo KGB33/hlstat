@@ -17,7 +17,7 @@ type appEnv struct {
 func CLI(args []string) int {
 	var app appEnv
 
-	switch	err := app.fromArgs(args); err {
+	switch err := app.fromArgs(args); err {
 	case nil:
 		// Do nothing
 	case flag.ErrHelp:
@@ -49,16 +49,16 @@ func (a *appEnv) fromArgs(args []string) error {
 
 	if err := fl.Parse(args); err != nil {
 		return err
-}
+	}
 
 	// Args
 
-	a.services = map[string]bool {
-		"router": false,
+	a.services = map[string]bool{
+		"router":  false,
 		"gateway": false,
-		"rpi": false,
-		"dns": false,
-		"d-bot": false,
+		"rpi":     false,
+		"dns":     false,
+		"d-bot":   false,
 	}
 
 	for _, arg := range fl.Args() {

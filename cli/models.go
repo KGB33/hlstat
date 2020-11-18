@@ -1,7 +1,7 @@
 package cli
 
 type StatusResponse struct {
-	status string `One of: OK, WARN, FAIL`
+	status  string `One of: OK, WARN, FAIL`
 	message string
 }
 
@@ -10,7 +10,7 @@ type RouterStatusResponse struct {
 }
 
 type WanResponse struct {
-	GatewayIpAddress string `json:"gatewayIpAddress"`
-	Online bool `json:"online"`
-	NameServers []string `json:"nameServers"`
+	GatewayIpAddress string   `json:"gatewayIpAddress"`
+	Online           bool     `json:"online"`
+	NameServers      []string `json:"nameServers"`
 }

@@ -13,10 +13,10 @@ const GREEN = "\033[38;2;0;255;0m" + CHECK + CLEAR
 
 const HEADER = "---------- Home Lab Stats ----------"
 
-func defaultFormat(input map[string]StatusResponse)  {
+func defaultFormat(input map[string]StatusResponse) {
 	var color string
 	fmt.Println(HEADER)
-	for key,val := range input {
+	for key, val := range input {
 		switch val.status {
 		case "OK":
 			color = GREEN
