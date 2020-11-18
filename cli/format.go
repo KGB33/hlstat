@@ -13,7 +13,7 @@ const GREEN = "\033[38;2;0;255;0m" + CHECK + CLEAR
 
 const HEADER = "---------- Home Lab Stats ----------"
 
-func defaultFormat(input map[string]StatusResponse) {
+func defaultFormat(input map[string]StatusResponse, long bool) {
 	var color string
 	fmt.Println(HEADER)
 	for key, val := range input {
@@ -26,5 +26,8 @@ func defaultFormat(input map[string]StatusResponse) {
 			color = RED
 		}
 		fmt.Printf("   %s %s\n", color, key)
+		if long {
+			fmt.Printf("\t%v\n\n", val.message)
+		}
 	}
 }

@@ -31,8 +31,7 @@ func CLI(args []string) int {
 }
 
 func (a *appEnv) run() int {
-	defaultFormat(workerDispacher(a.services))
-	fmt.Printf("%v\n", a)
+	defaultFormat(workerDispacher(a.services), a.longList)
 	return 0
 }
 
