@@ -6,13 +6,13 @@ A CLI tool to quicly and easily gather logs, data, and stats for my homelab.
 # Feaures
 
 [x] Router Ping
-[] Gateway Ping
+[x] Gateway Ping
 [] RaspberryPi Status
 [] Discord bot Status
 [] Public DNS Server Ping
 
 [x] Simple Output
-[] Extended Output
+[x] Extended Output
 [x] Color
 
 
