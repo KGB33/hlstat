@@ -81,7 +81,7 @@ func pingGateway() StatusResponse {
 		return StatusResponse{status: "WARN", message: fmt.Sprintf("Got unexpected StatusCode = %v,\n\t%v", resp.StatusCode, http.StatusText(resp.StatusCode))}
 	}
 
-	return StatusResponse{status: "OK", message: "Pinnged Gateway Successfully"}
+	return StatusResponse{status: "OK", message: "Pinged Gateway Successfully"}
 }
 
 func pingDNS() StatusResponse {
@@ -97,7 +97,7 @@ func pingDNS() StatusResponse {
 		return StatusResponse{status: "FAIL", message: fmt.Sprintf("Could not resolve hostname.\n\t%v", err)}
 	}
 
-	return StatusResponse{status: "OK", message: fmt.Sprintf("Hostname Successfully Resolved.\n\t'goolge.com' --> '%v'", ip)}
+	return StatusResponse{status: "OK", message: fmt.Sprintf("Hostname Successfully Resolved.\n\t'google.com' --> '%v'", ip)}
 }
 
 func pingDiscordBot() string {
