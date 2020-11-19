@@ -61,7 +61,20 @@ func pingRouter() StatusResponse {
 }
 
 func pingGateway() StatusResponse {
-	return StatusResponse{status: "WARN", message: "pingGateway is WIP"}
+	const endpoint = "http://10.2.6.1/graphs/iface/vlan103/"
+
+	resp, err := http.Get(endpoint)
+
+	if err != nil {
+		return StatusResponse{status: "FAIL", message: fmt.Sprintf("Could not connect to gateway.\n\t%v", err)}
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return StatusResponse{status: "WARN", message: fmt.Sprintf("Got unexpected StatusCode = %v,\n\t%v", resp.StatusCode, http.StatusText(resp.StatusCode))}
+	}
+
+	return StatusResponse{status: "OK", message: "Pinnged Gateway Successfully"}
 }
 
 func pingDNS() string {
