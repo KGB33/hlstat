@@ -1,10 +1,13 @@
 package cli
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net"
 	"net/http"
+	"time"
 )
 
 func workerDispacher(services map[string]bool) map[string]StatusResponse {
@@ -17,6 +20,10 @@ func workerDispacher(services map[string]bool) map[string]StatusResponse {
 
 	if services["gateway"] {
 		results["gateway"] = pingGateway()
+	}
+
+	if services["dns"] {
+		results["dns"] = pingDNS()
 	}
 
 	return results
@@ -77,8 +84,20 @@ func pingGateway() StatusResponse {
 	return StatusResponse{status: "OK", message: "Pinnged Gateway Successfully"}
 }
 
-func pingDNS() string {
-	return "pingDNS is WIP"
+func pingDNS() StatusResponse {
+	r := &net.Resolver{PreferGo: true, Dial: func(ctx context.Context, network, address string) (net.Conn, error) {
+		d := net.Dialer{
+			Timeout: time.Second * time.Duration(30),
+		}
+		return d.DialContext(ctx, network, "8.8.8.8:53")
+	},
+	}
+	ip, err := r.LookupHost(context.Background(), "www.google.com")
+	if err != nil {
+		return StatusResponse{status: "FAIL", message: fmt.Sprintf("Could not resolve hostname.\n\t%v", err)}
+	}
+
+	return StatusResponse{status: "OK", message: fmt.Sprintf("Hostname Successfully Resolved.\n\t'goolge.com' --> '%v'", ip)}
 }
 
 func pingDiscordBot() string {

@@ -9,7 +9,7 @@ A CLI tool to quicly and easily gather logs, data, and stats for my homelab.
 [x] Gateway Ping
 [] RaspberryPi Status
 [] Discord bot Status
-[] Public DNS Server Ping
+[x] Public DNS Server Ping
 
 [x] Simple Output
 [x] Extended Output
