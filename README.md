@@ -2,21 +2,20 @@
 
 A CLI tool to quicly and easily gather logs, data, and stats for my homelab. 
 
-
 # Feaures
 
-[x] Router Ping
-[x] Gateway Ping
-[] RaspberryPi Status
-[] Discord bot Status
-[x] Public DNS Server Ping
+- [x] Router Ping
+- [x] Gateway Ping
+- [ ] RaspberryPi Status
+- [ ] Discord bot Status
+- [x] Public DNS Server Ping
 
-[x] Simple Output
-[x] Extended Output
-[x] Color
+- [x] Simple Output
+- [x] Extended Output
+- [x] Color
 
 
-[] Asyncronus Pings
+- [ ] Asyncronus Pings
 
 # Tech Stack
 
