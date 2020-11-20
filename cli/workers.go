@@ -63,7 +63,7 @@ func pingRouter() StatusResponse {
 	if w.Wan.Online {
 		return StatusResponse{status: "OK", message: fmt.Sprintf("Online\n\tGateway Ip Addr: %v\n\tUsing DNS Servers: %v", w.Wan.GatewayIpAddress, w.Wan.NameServers)}
 	}
-	return StatusResponse{status: "WARN", message: fmt.Sprintf("Router Cannot Connect to Internet")}
+	return StatusResponse{status: "WARN", message: "Router Cannot Connect to Internet"}
 
 }
 

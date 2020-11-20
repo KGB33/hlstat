@@ -1,7 +1,7 @@
 package cli
 
 type StatusResponse struct {
-	status  string `One of: OK, WARN, FAIL`
+	status  string // One of: OK, WARN, FAIL
 	message string
 }
 
